@@ -17,8 +17,35 @@
 		39E8E0F915B2124800104E30 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */; };
 		39E8E0FC15B2124800104E30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0FB15B2124800104E30 /* ViewController.m */; };
 		39E8E10615B214B000104E30 /* libQuickPrintSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10315B214B000104E30 /* libQuickPrintSDK.a */; };
-		39E8E11115B214CA00104E30 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10E15B214CA00104E30 /* libAviarySDK.a */; };
+		39E8E11115B214CA00104E30 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10E15B214CA00104E30 /* libAviarySDK.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		39E8E11215B214CA00104E30 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */; };
+		39E8E13215B229FE00104E30 /* libCrittercismCrashOnly_v3_2_5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E11815B229FE00104E30 /* libCrittercismCrashOnly_v3_2_5.a */; };
+		39E8E13415B22AB800104E30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E13315B22AB800104E30 /* SystemConfiguration.framework */; };
+		39E8E13615B22ACC00104E30 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E13515B22ACC00104E30 /* QuartzCore.framework */; };
+		39E8E13815B22AD600104E30 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E13715B22AD600104E30 /* StoreKit.framework */; };
+		39E8E13A15B22AE200104E30 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E13915B22AE200104E30 /* Accelerate.framework */; };
+		39E8E13C15B22AF500104E30 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E13B15B22AF400104E30 /* libz.1.2.5.dylib */; };
+		39E8E13E15B22B0200104E30 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E13D15B22B0200104E30 /* libsqlite3.0.dylib */; };
+		39E8E14015B22B0D00104E30 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E13F15B22B0D00104E30 /* CoreData.framework */; };
+		39E8E15515B2395200104E30 /* c-64x64-dkblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14215B2395200104E30 /* c-64x64-dkblue.png */; };
+		39E8E15615B2395200104E30 /* credditter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14315B2395200104E30 /* credditter.png */; };
+		39E8E15715B2395200104E30 /* critter-c.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14415B2395200104E30 /* critter-c.png */; };
+		39E8E15815B2395200104E30 /* critterdroid-jellybean.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14515B2395200104E30 /* critterdroid-jellybean.png */; };
+		39E8E15915B2395200104E30 /* critterken.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14615B2395200104E30 /* critterken.png */; };
+		39E8E15A15B2395200104E30 /* critterobi.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14715B2395200104E30 /* critterobi.png */; };
+		39E8E15B15B2395200104E30 /* fancy-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14815B2395200104E30 /* fancy-critter.png */; };
+		39E8E15C15B2395200104E30 /* hamster-ftw.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14915B2395200104E30 /* hamster-ftw.png */; };
+		39E8E15D15B2395200104E30 /* hamster-ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14A15B2395200104E30 /* hamster-ninja.png */; };
+		39E8E15E15B2395200104E30 /* hax0r-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14B15B2395200104E30 /* hax0r-critter.png */; };
+		39E8E15F15B2395200104E30 /* html5-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14C15B2395200104E30 /* html5-critter.png */; };
+		39E8E16015B2395200104E30 /* ios-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14D15B2395200104E30 /* ios-critter.png */; };
+		39E8E16115B2395200104E30 /* logo-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14E15B2395200104E30 /* logo-critter.png */; };
+		39E8E16215B2395200104E30 /* movie-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E14F15B2395200104E30 /* movie-critter.png */; };
+		39E8E16315B2395200104E30 /* nyancritter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15015B2395200104E30 /* nyancritter.png */; };
+		39E8E16415B2395200104E30 /* pride-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15115B2395200104E30 /* pride-critter.png */; };
+		39E8E16515B2395200104E30 /* sir-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15215B2395200104E30 /* sir-critter.png */; };
+		39E8E16615B2395200104E30 /* surprisedcritter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15315B2395200104E30 /* surprisedcritter.png */; };
+		39E8E16715B2395200104E30 /* tron-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15415B2395200104E30 /* tron-critter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +73,62 @@
 		39E8E10D15B214CA00104E30 /* AFPhotoEditorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorStyle.h; sourceTree = "<group>"; };
 		39E8E10E15B214CA00104E30 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
 		39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+		39E8E11415B229FE00104E30 /* CrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashReporter.h; sourceTree = "<group>"; };
+		39E8E11515B229FE00104E30 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		39E8E11615B229FE00104E30 /* CrittercismJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismJSONKit.h; sourceTree = "<group>"; };
+		39E8E11715B229FE00104E30 /* CrittercismReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismReachability.h; sourceTree = "<group>"; };
+		39E8E11815B229FE00104E30 /* libCrittercismCrashOnly_v3_2_5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercismCrashOnly_v3_2_5.a; sourceTree = "<group>"; };
+		39E8E11915B229FE00104E30 /* PLCrashAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashAsync.h; sourceTree = "<group>"; };
+		39E8E11A15B229FE00104E30 /* PLCrashAsyncImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashAsyncImage.h; sourceTree = "<group>"; };
+		39E8E11B15B229FE00104E30 /* PLCrashAsyncSignalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashAsyncSignalInfo.h; sourceTree = "<group>"; };
+		39E8E11C15B229FE00104E30 /* PLCrashFrameWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashFrameWalker.h; sourceTree = "<group>"; };
+		39E8E11D15B229FE00104E30 /* PLCrashFrameWalker_arm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashFrameWalker_arm.h; sourceTree = "<group>"; };
+		39E8E11E15B229FE00104E30 /* PLCrashFrameWalker_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashFrameWalker_i386.h; sourceTree = "<group>"; };
+		39E8E11F15B229FE00104E30 /* PLCrashFrameWalker_ppc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashFrameWalker_ppc.h; sourceTree = "<group>"; };
+		39E8E12015B229FE00104E30 /* PLCrashFrameWalker_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashFrameWalker_x86_64.h; sourceTree = "<group>"; };
+		39E8E12115B229FE00104E30 /* PLCrashLogWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashLogWriter.h; sourceTree = "<group>"; };
+		39E8E12215B229FE00104E30 /* PLCrashLogWriterEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashLogWriterEncoding.h; sourceTree = "<group>"; };
+		39E8E12315B229FE00104E30 /* PLCrashReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReport.h; sourceTree = "<group>"; };
+		39E8E12415B229FE00104E30 /* PLCrashReportApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportApplicationInfo.h; sourceTree = "<group>"; };
+		39E8E12515B229FE00104E30 /* PLCrashReportBinaryImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportBinaryImageInfo.h; sourceTree = "<group>"; };
+		39E8E12615B229FE00104E30 /* PLCrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReporter.h; sourceTree = "<group>"; };
+		39E8E12715B229FE00104E30 /* PLCrashReportExceptionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportExceptionInfo.h; sourceTree = "<group>"; };
+		39E8E12815B229FE00104E30 /* PLCrashReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportFormatter.h; sourceTree = "<group>"; };
+		39E8E12915B229FE00104E30 /* PLCrashReportMachineInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportMachineInfo.h; sourceTree = "<group>"; };
+		39E8E12A15B229FE00104E30 /* PLCrashReportProcessInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportProcessInfo.h; sourceTree = "<group>"; };
+		39E8E12B15B229FE00104E30 /* PLCrashReportProcessorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportProcessorInfo.h; sourceTree = "<group>"; };
+		39E8E12C15B229FE00104E30 /* PLCrashReportSignalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportSignalInfo.h; sourceTree = "<group>"; };
+		39E8E12D15B229FE00104E30 /* PLCrashReportSystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportSystemInfo.h; sourceTree = "<group>"; };
+		39E8E12E15B229FE00104E30 /* PLCrashReportTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportTextFormatter.h; sourceTree = "<group>"; };
+		39E8E12F15B229FE00104E30 /* PLCrashReportThreadInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashReportThreadInfo.h; sourceTree = "<group>"; };
+		39E8E13015B229FE00104E30 /* PLCrashSignalHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashSignalHandler.h; sourceTree = "<group>"; };
+		39E8E13115B229FE00104E30 /* PLCrashSysctl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLCrashSysctl.h; sourceTree = "<group>"; };
+		39E8E13315B22AB800104E30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		39E8E13515B22ACC00104E30 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		39E8E13715B22AD600104E30 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		39E8E13915B22AE200104E30 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		39E8E13B15B22AF400104E30 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		39E8E13D15B22B0200104E30 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		39E8E13F15B22B0D00104E30 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		39E8E14215B2395200104E30 /* c-64x64-dkblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c-64x64-dkblue.png"; sourceTree = "<group>"; };
+		39E8E14315B2395200104E30 /* credditter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credditter.png; sourceTree = "<group>"; };
+		39E8E14415B2395200104E30 /* critter-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "critter-c.png"; sourceTree = "<group>"; };
+		39E8E14515B2395200104E30 /* critterdroid-jellybean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "critterdroid-jellybean.png"; sourceTree = "<group>"; };
+		39E8E14615B2395200104E30 /* critterken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = critterken.png; sourceTree = "<group>"; };
+		39E8E14715B2395200104E30 /* critterobi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = critterobi.png; sourceTree = "<group>"; };
+		39E8E14815B2395200104E30 /* fancy-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fancy-critter.png"; sourceTree = "<group>"; };
+		39E8E14915B2395200104E30 /* hamster-ftw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamster-ftw.png"; sourceTree = "<group>"; };
+		39E8E14A15B2395200104E30 /* hamster-ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamster-ninja.png"; sourceTree = "<group>"; };
+		39E8E14B15B2395200104E30 /* hax0r-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hax0r-critter.png"; sourceTree = "<group>"; };
+		39E8E14C15B2395200104E30 /* html5-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "html5-critter.png"; sourceTree = "<group>"; };
+		39E8E14D15B2395200104E30 /* ios-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-critter.png"; sourceTree = "<group>"; };
+		39E8E14E15B2395200104E30 /* logo-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-critter.png"; sourceTree = "<group>"; };
+		39E8E14F15B2395200104E30 /* movie-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "movie-critter.png"; sourceTree = "<group>"; };
+		39E8E15015B2395200104E30 /* nyancritter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nyancritter.png; sourceTree = "<group>"; };
+		39E8E15115B2395200104E30 /* pride-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pride-critter.png"; sourceTree = "<group>"; };
+		39E8E15215B2395200104E30 /* sir-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sir-critter.png"; sourceTree = "<group>"; };
+		39E8E15315B2395200104E30 /* surprisedcritter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surprisedcritter.png; sourceTree = "<group>"; };
+		39E8E15415B2395200104E30 /* tron-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tron-critter.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +136,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39E8E14015B22B0D00104E30 /* CoreData.framework in Frameworks */,
+				39E8E13E15B22B0200104E30 /* libsqlite3.0.dylib in Frameworks */,
+				39E8E13C15B22AF500104E30 /* libz.1.2.5.dylib in Frameworks */,
+				39E8E13A15B22AE200104E30 /* Accelerate.framework in Frameworks */,
+				39E8E13815B22AD600104E30 /* StoreKit.framework in Frameworks */,
+				39E8E13615B22ACC00104E30 /* QuartzCore.framework in Frameworks */,
+				39E8E13415B22AB800104E30 /* SystemConfiguration.framework in Frameworks */,
 				39E8E0E315B2124800104E30 /* UIKit.framework in Frameworks */,
 				39E8E0E515B2124800104E30 /* Foundation.framework in Frameworks */,
 				39E8E0E715B2124800104E30 /* CoreGraphics.framework in Frameworks */,
 				39E8E10615B214B000104E30 /* libQuickPrintSDK.a in Frameworks */,
 				39E8E11115B214CA00104E30 /* libAviarySDK.a in Frameworks */,
+				39E8E13215B229FE00104E30 /* libCrittercismCrashOnly_v3_2_5.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +175,13 @@
 		39E8E0E115B2124800104E30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39E8E13F15B22B0D00104E30 /* CoreData.framework */,
+				39E8E13D15B22B0200104E30 /* libsqlite3.0.dylib */,
+				39E8E13B15B22AF400104E30 /* libz.1.2.5.dylib */,
+				39E8E13915B22AE200104E30 /* Accelerate.framework */,
+				39E8E13715B22AD600104E30 /* StoreKit.framework */,
+				39E8E13515B22ACC00104E30 /* QuartzCore.framework */,
+				39E8E13315B22AB800104E30 /* SystemConfiguration.framework */,
 				39E8E0E215B2124800104E30 /* UIKit.framework */,
 				39E8E0E415B2124800104E30 /* Foundation.framework */,
 				39E8E0E615B2124800104E30 /* CoreGraphics.framework */,
@@ -94,6 +192,7 @@
 		39E8E0E815B2124800104E30 /* logo-a-go-go */ = {
 			isa = PBXGroup;
 			children = (
+				39E8E11315B229FE00104E30 /* CrittercismSDK-crashonly */,
 				39E8E10715B214CA00104E30 /* AviarySDK */,
 				39E8E10215B214B000104E30 /* WalgreensSDK */,
 				39E8E0F115B2124800104E30 /* AppDelegate.h */,
@@ -102,6 +201,7 @@
 				39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */,
 				39E8E0FA15B2124800104E30 /* ViewController.h */,
 				39E8E0FB15B2124800104E30 /* ViewController.m */,
+				39E8E14115B2395100104E30 /* CritterStamps */,
 				39E8E0E915B2124800104E30 /* Supporting Files */,
 			);
 			path = "logo-a-go-go";
@@ -156,6 +256,69 @@
 				39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		39E8E11315B229FE00104E30 /* CrittercismSDK-crashonly */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E11415B229FE00104E30 /* CrashReporter.h */,
+				39E8E11515B229FE00104E30 /* Crittercism.h */,
+				39E8E11615B229FE00104E30 /* CrittercismJSONKit.h */,
+				39E8E11715B229FE00104E30 /* CrittercismReachability.h */,
+				39E8E11815B229FE00104E30 /* libCrittercismCrashOnly_v3_2_5.a */,
+				39E8E11915B229FE00104E30 /* PLCrashAsync.h */,
+				39E8E11A15B229FE00104E30 /* PLCrashAsyncImage.h */,
+				39E8E11B15B229FE00104E30 /* PLCrashAsyncSignalInfo.h */,
+				39E8E11C15B229FE00104E30 /* PLCrashFrameWalker.h */,
+				39E8E11D15B229FE00104E30 /* PLCrashFrameWalker_arm.h */,
+				39E8E11E15B229FE00104E30 /* PLCrashFrameWalker_i386.h */,
+				39E8E11F15B229FE00104E30 /* PLCrashFrameWalker_ppc.h */,
+				39E8E12015B229FE00104E30 /* PLCrashFrameWalker_x86_64.h */,
+				39E8E12115B229FE00104E30 /* PLCrashLogWriter.h */,
+				39E8E12215B229FE00104E30 /* PLCrashLogWriterEncoding.h */,
+				39E8E12315B229FE00104E30 /* PLCrashReport.h */,
+				39E8E12415B229FE00104E30 /* PLCrashReportApplicationInfo.h */,
+				39E8E12515B229FE00104E30 /* PLCrashReportBinaryImageInfo.h */,
+				39E8E12615B229FE00104E30 /* PLCrashReporter.h */,
+				39E8E12715B229FE00104E30 /* PLCrashReportExceptionInfo.h */,
+				39E8E12815B229FE00104E30 /* PLCrashReportFormatter.h */,
+				39E8E12915B229FE00104E30 /* PLCrashReportMachineInfo.h */,
+				39E8E12A15B229FE00104E30 /* PLCrashReportProcessInfo.h */,
+				39E8E12B15B229FE00104E30 /* PLCrashReportProcessorInfo.h */,
+				39E8E12C15B229FE00104E30 /* PLCrashReportSignalInfo.h */,
+				39E8E12D15B229FE00104E30 /* PLCrashReportSystemInfo.h */,
+				39E8E12E15B229FE00104E30 /* PLCrashReportTextFormatter.h */,
+				39E8E12F15B229FE00104E30 /* PLCrashReportThreadInfo.h */,
+				39E8E13015B229FE00104E30 /* PLCrashSignalHandler.h */,
+				39E8E13115B229FE00104E30 /* PLCrashSysctl.h */,
+			);
+			path = "CrittercismSDK-crashonly";
+			sourceTree = "<group>";
+		};
+		39E8E14115B2395100104E30 /* CritterStamps */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E14215B2395200104E30 /* c-64x64-dkblue.png */,
+				39E8E14315B2395200104E30 /* credditter.png */,
+				39E8E14415B2395200104E30 /* critter-c.png */,
+				39E8E14515B2395200104E30 /* critterdroid-jellybean.png */,
+				39E8E14615B2395200104E30 /* critterken.png */,
+				39E8E14715B2395200104E30 /* critterobi.png */,
+				39E8E14815B2395200104E30 /* fancy-critter.png */,
+				39E8E14915B2395200104E30 /* hamster-ftw.png */,
+				39E8E14A15B2395200104E30 /* hamster-ninja.png */,
+				39E8E14B15B2395200104E30 /* hax0r-critter.png */,
+				39E8E14C15B2395200104E30 /* html5-critter.png */,
+				39E8E14D15B2395200104E30 /* ios-critter.png */,
+				39E8E14E15B2395200104E30 /* logo-critter.png */,
+				39E8E14F15B2395200104E30 /* movie-critter.png */,
+				39E8E15015B2395200104E30 /* nyancritter.png */,
+				39E8E15115B2395200104E30 /* pride-critter.png */,
+				39E8E15215B2395200104E30 /* sir-critter.png */,
+				39E8E15315B2395200104E30 /* surprisedcritter.png */,
+				39E8E15415B2395200104E30 /* tron-critter.png */,
+			);
+			path = CritterStamps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +376,25 @@
 				39E8E0F615B2124800104E30 /* MainStoryboard_iPhone.storyboard in Resources */,
 				39E8E0F915B2124800104E30 /* MainStoryboard_iPad.storyboard in Resources */,
 				39E8E11215B214CA00104E30 /* AviarySDKResources.bundle in Resources */,
+				39E8E15515B2395200104E30 /* c-64x64-dkblue.png in Resources */,
+				39E8E15615B2395200104E30 /* credditter.png in Resources */,
+				39E8E15715B2395200104E30 /* critter-c.png in Resources */,
+				39E8E15815B2395200104E30 /* critterdroid-jellybean.png in Resources */,
+				39E8E15915B2395200104E30 /* critterken.png in Resources */,
+				39E8E15A15B2395200104E30 /* critterobi.png in Resources */,
+				39E8E15B15B2395200104E30 /* fancy-critter.png in Resources */,
+				39E8E15C15B2395200104E30 /* hamster-ftw.png in Resources */,
+				39E8E15D15B2395200104E30 /* hamster-ninja.png in Resources */,
+				39E8E15E15B2395200104E30 /* hax0r-critter.png in Resources */,
+				39E8E15F15B2395200104E30 /* html5-critter.png in Resources */,
+				39E8E16015B2395200104E30 /* ios-critter.png in Resources */,
+				39E8E16115B2395200104E30 /* logo-critter.png in Resources */,
+				39E8E16215B2395200104E30 /* movie-critter.png in Resources */,
+				39E8E16315B2395200104E30 /* nyancritter.png in Resources */,
+				39E8E16415B2395200104E30 /* pride-critter.png in Resources */,
+				39E8E16515B2395200104E30 /* sir-critter.png in Resources */,
+				39E8E16615B2395200104E30 /* surprisedcritter.png in Resources */,
+				39E8E16715B2395200104E30 /* tron-critter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +498,12 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/logo-a-go-go/WalgreensSDK\"",
 					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
+					"\"$(SRCROOT)/logo-a-go-go/CrittercismSDK-crashonly\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-fobjc-arc",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -332,6 +520,12 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/logo-a-go-go/WalgreensSDK\"",
 					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
+					"\"$(SRCROOT)/logo-a-go-go/CrittercismSDK-crashonly\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-fobjc-arc",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

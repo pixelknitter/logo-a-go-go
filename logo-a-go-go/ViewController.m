@@ -61,4 +61,9 @@
     }
 }
 
+-(IBAction) crashPressed:(id) sender {
+    [NSException raise:NSInvalidArgumentException
+                format:@"Foo must not be nil"];
+}
+
 @end

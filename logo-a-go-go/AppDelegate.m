@@ -15,6 +15,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Crittercism initWithAppID:@"5001c7882cd952326b000003"
+                        andKey:@"zgkiztlbkr68fmcydfjoybvvxwr0"
+                        andSecret:@"xn0mo9tjfczehve2ok3usdxw1uimjfl7"];
+    
     return YES;
 }
 							
