@@ -1,0 +1,364 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39E8E0E315B2124800104E30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E215B2124800104E30 /* UIKit.framework */; };
+		39E8E0E515B2124800104E30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E415B2124800104E30 /* Foundation.framework */; };
+		39E8E0E715B2124800104E30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E615B2124800104E30 /* CoreGraphics.framework */; };
+		39E8E0ED15B2124800104E30 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0EB15B2124800104E30 /* InfoPlist.strings */; };
+		39E8E0EF15B2124800104E30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0EE15B2124800104E30 /* main.m */; };
+		39E8E0F315B2124800104E30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0F215B2124800104E30 /* AppDelegate.m */; };
+		39E8E0F615B2124800104E30 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0F415B2124800104E30 /* MainStoryboard_iPhone.storyboard */; };
+		39E8E0F915B2124800104E30 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */; };
+		39E8E0FC15B2124800104E30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0FB15B2124800104E30 /* ViewController.m */; };
+		39E8E10615B214B000104E30 /* libQuickPrintSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10315B214B000104E30 /* libQuickPrintSDK.a */; };
+		39E8E11115B214CA00104E30 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10E15B214CA00104E30 /* libAviarySDK.a */; };
+		39E8E11215B214CA00104E30 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		39E8E0DE15B2124800104E30 /* logo-a-go-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "logo-a-go-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39E8E0E215B2124800104E30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		39E8E0E415B2124800104E30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		39E8E0E615B2124800104E30 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		39E8E0EA15B2124800104E30 /* logo-a-go-go-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "logo-a-go-go-Info.plist"; sourceTree = "<group>"; };
+		39E8E0EC15B2124800104E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		39E8E0EE15B2124800104E30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		39E8E0F015B2124800104E30 /* logo-a-go-go-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "logo-a-go-go-Prefix.pch"; sourceTree = "<group>"; };
+		39E8E0F115B2124800104E30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		39E8E0F215B2124800104E30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		39E8E0F515B2124800104E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		39E8E0F815B2124800104E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		39E8E0FA15B2124800104E30 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		39E8E0FB15B2124800104E30 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		39E8E10315B214B000104E30 /* libQuickPrintSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libQuickPrintSDK.a; sourceTree = "<group>"; };
+		39E8E10415B214B000104E30 /* WAG_CheckoutContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAG_CheckoutContext.h; sourceTree = "<group>"; };
+		39E8E10515B214B000104E30 /* WAG_ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAG_ImageData.h; sourceTree = "<group>"; };
+		39E8E10915B214CA00104E30 /* AFPhotoEditorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorContext.h; sourceTree = "<group>"; };
+		39E8E10A15B214CA00104E30 /* AFPhotoEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorController.h; sourceTree = "<group>"; };
+		39E8E10B15B214CA00104E30 /* AFPhotoEditorControllerOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorControllerOptions.h; sourceTree = "<group>"; };
+		39E8E10C15B214CA00104E30 /* AFPhotoEditorSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorSession.h; sourceTree = "<group>"; };
+		39E8E10D15B214CA00104E30 /* AFPhotoEditorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPhotoEditorStyle.h; sourceTree = "<group>"; };
+		39E8E10E15B214CA00104E30 /* libAviarySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAviarySDK.a; sourceTree = "<group>"; };
+		39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AviarySDKResources.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39E8E0DB15B2124800104E30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39E8E0E315B2124800104E30 /* UIKit.framework in Frameworks */,
+				39E8E0E515B2124800104E30 /* Foundation.framework in Frameworks */,
+				39E8E0E715B2124800104E30 /* CoreGraphics.framework in Frameworks */,
+				39E8E10615B214B000104E30 /* libQuickPrintSDK.a in Frameworks */,
+				39E8E11115B214CA00104E30 /* libAviarySDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39E8E0D315B2124800104E30 = {
+			isa = PBXGroup;
+			children = (
+				39E8E0E815B2124800104E30 /* logo-a-go-go */,
+				39E8E0E115B2124800104E30 /* Frameworks */,
+				39E8E0DF15B2124800104E30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39E8E0DF15B2124800104E30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E0DE15B2124800104E30 /* logo-a-go-go.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39E8E0E115B2124800104E30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E0E215B2124800104E30 /* UIKit.framework */,
+				39E8E0E415B2124800104E30 /* Foundation.framework */,
+				39E8E0E615B2124800104E30 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		39E8E0E815B2124800104E30 /* logo-a-go-go */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E10715B214CA00104E30 /* AviarySDK */,
+				39E8E10215B214B000104E30 /* WalgreensSDK */,
+				39E8E0F115B2124800104E30 /* AppDelegate.h */,
+				39E8E0F215B2124800104E30 /* AppDelegate.m */,
+				39E8E0F415B2124800104E30 /* MainStoryboard_iPhone.storyboard */,
+				39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */,
+				39E8E0FA15B2124800104E30 /* ViewController.h */,
+				39E8E0FB15B2124800104E30 /* ViewController.m */,
+				39E8E0E915B2124800104E30 /* Supporting Files */,
+			);
+			path = "logo-a-go-go";
+			sourceTree = "<group>";
+		};
+		39E8E0E915B2124800104E30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E0EA15B2124800104E30 /* logo-a-go-go-Info.plist */,
+				39E8E0EB15B2124800104E30 /* InfoPlist.strings */,
+				39E8E0EE15B2124800104E30 /* main.m */,
+				39E8E0F015B2124800104E30 /* logo-a-go-go-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39E8E10215B214B000104E30 /* WalgreensSDK */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E10315B214B000104E30 /* libQuickPrintSDK.a */,
+				39E8E10415B214B000104E30 /* WAG_CheckoutContext.h */,
+				39E8E10515B214B000104E30 /* WAG_ImageData.h */,
+			);
+			path = WalgreensSDK;
+			sourceTree = "<group>";
+		};
+		39E8E10715B214CA00104E30 /* AviarySDK */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E10815B214CA00104E30 /* Headers */,
+				39E8E10E15B214CA00104E30 /* libAviarySDK.a */,
+				39E8E10F15B214CA00104E30 /* Resources */,
+			);
+			path = AviarySDK;
+			sourceTree = "<group>";
+		};
+		39E8E10815B214CA00104E30 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E10915B214CA00104E30 /* AFPhotoEditorContext.h */,
+				39E8E10A15B214CA00104E30 /* AFPhotoEditorController.h */,
+				39E8E10B15B214CA00104E30 /* AFPhotoEditorControllerOptions.h */,
+				39E8E10C15B214CA00104E30 /* AFPhotoEditorSession.h */,
+				39E8E10D15B214CA00104E30 /* AFPhotoEditorStyle.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		39E8E10F15B214CA00104E30 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39E8E0DD15B2124800104E30 /* logo-a-go-go */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39E8E0FF15B2124800104E30 /* Build configuration list for PBXNativeTarget "logo-a-go-go" */;
+			buildPhases = (
+				39E8E0DA15B2124800104E30 /* Sources */,
+				39E8E0DB15B2124800104E30 /* Frameworks */,
+				39E8E0DC15B2124800104E30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "logo-a-go-go";
+			productName = "logo-a-go-go";
+			productReference = 39E8E0DE15B2124800104E30 /* logo-a-go-go.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39E8E0D515B2124800104E30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Noblis Inc.";
+			};
+			buildConfigurationList = 39E8E0D815B2124800104E30 /* Build configuration list for PBXProject "logo-a-go-go" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 39E8E0D315B2124800104E30;
+			productRefGroup = 39E8E0DF15B2124800104E30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39E8E0DD15B2124800104E30 /* logo-a-go-go */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39E8E0DC15B2124800104E30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39E8E0ED15B2124800104E30 /* InfoPlist.strings in Resources */,
+				39E8E0F615B2124800104E30 /* MainStoryboard_iPhone.storyboard in Resources */,
+				39E8E0F915B2124800104E30 /* MainStoryboard_iPad.storyboard in Resources */,
+				39E8E11215B214CA00104E30 /* AviarySDKResources.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39E8E0DA15B2124800104E30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39E8E0EF15B2124800104E30 /* main.m in Sources */,
+				39E8E0F315B2124800104E30 /* AppDelegate.m in Sources */,
+				39E8E0FC15B2124800104E30 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		39E8E0EB15B2124800104E30 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39E8E0EC15B2124800104E30 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		39E8E0F415B2124800104E30 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39E8E0F515B2124800104E30 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39E8E0F815B2124800104E30 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39E8E0FD15B2124800104E30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39E8E0FE15B2124800104E30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39E8E10015B2124800104E30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "logo-a-go-go/logo-a-go-go-Prefix.pch";
+				INFOPLIST_FILE = "logo-a-go-go/logo-a-go-go-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/logo-a-go-go/WalgreensSDK\"",
+					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		39E8E10115B2124800104E30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "logo-a-go-go/logo-a-go-go-Prefix.pch";
+				INFOPLIST_FILE = "logo-a-go-go/logo-a-go-go-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/logo-a-go-go/WalgreensSDK\"",
+					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39E8E0D815B2124800104E30 /* Build configuration list for PBXProject "logo-a-go-go" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39E8E0FD15B2124800104E30 /* Debug */,
+				39E8E0FE15B2124800104E30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39E8E0FF15B2124800104E30 /* Build configuration list for PBXNativeTarget "logo-a-go-go" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39E8E10015B2124800104E30 /* Debug */,
+				39E8E10115B2124800104E30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39E8E0D515B2124800104E30 /* Project object */;
+}
