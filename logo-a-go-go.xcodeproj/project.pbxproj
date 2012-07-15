@@ -67,6 +67,8 @@
 		0DDD419115B2B5E8003BE131 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		0DDD419215B2B5E8003BE131 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		0DDD419315B2B5E8003BE131 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		0DDD41A615B2BB39003BE131 /* SceneCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneCaptureViewController.h; sourceTree = "<group>"; };
+		0DDD41A715B2BB39003BE131 /* SceneCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneCaptureViewController.m; sourceTree = "<group>"; };
 		39E8E0DE15B2124800104E30 /* logo-a-go-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "logo-a-go-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E8E0E215B2124800104E30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		39E8E0E415B2124800104E30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,6 +247,10 @@
 				39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */,
 				39E8E0FA15B2124800104E30 /* ParentViewController.h */,
 				39E8E0FB15B2124800104E30 /* ParentViewController.m */,
+				0DDD41A615B2BB39003BE131 /* SceneCaptureViewController.h */,
+				0DDD41A715B2BB39003BE131 /* SceneCaptureViewController.m */,
+				39E8E0FA15B2124800104E30 /* ViewController.h */,
+				39E8E0FB15B2124800104E30 /* ViewController.m */,
 				39E8E16815B23FF700104E30 /* assets */,
 				39E8E14115B2395100104E30 /* CritterStamps */,
 				39E8E0E915B2124800104E30 /* Supporting Files */,
