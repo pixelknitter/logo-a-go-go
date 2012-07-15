@@ -3,7 +3,7 @@
 //  logo-a-go-go
 //
 //  Created by Eddie Freeman on 7/14/12.
-//  Copyright (c) 2012 Noblis Inc. All rights reserved.
+//  Copyright (c) 2012 NinjaSudo Inc. All rights reserved.
 //
 
 #import "AppDelegate.h"

@@ -46,6 +46,7 @@
 		39E8E16515B2395200104E30 /* sir-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15215B2395200104E30 /* sir-critter.png */; };
 		39E8E16615B2395200104E30 /* surprisedcritter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15315B2395200104E30 /* surprisedcritter.png */; };
 		39E8E16715B2395200104E30 /* tron-critter.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E15415B2395200104E30 /* tron-critter.png */; };
+		39E8E16A15B2401300104E30 /* logo-arrow-left.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E16915B2401300104E30 /* logo-arrow-left.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		39E8E15215B2395200104E30 /* sir-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sir-critter.png"; sourceTree = "<group>"; };
 		39E8E15315B2395200104E30 /* surprisedcritter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surprisedcritter.png; sourceTree = "<group>"; };
 		39E8E15415B2395200104E30 /* tron-critter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tron-critter.png"; sourceTree = "<group>"; };
+		39E8E16915B2401300104E30 /* logo-arrow-left.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "logo-arrow-left.jpeg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +194,8 @@
 		39E8E0E815B2124800104E30 /* logo-a-go-go */ = {
 			isa = PBXGroup;
 			children = (
-				39E8E11315B229FE00104E30 /* CrittercismSDK-crashonly */,
 				39E8E10715B214CA00104E30 /* AviarySDK */,
+				39E8E11315B229FE00104E30 /* CrittercismSDK-crashonly */,
 				39E8E10215B214B000104E30 /* WalgreensSDK */,
 				39E8E0F115B2124800104E30 /* AppDelegate.h */,
 				39E8E0F215B2124800104E30 /* AppDelegate.m */,
@@ -201,6 +203,7 @@
 				39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */,
 				39E8E0FA15B2124800104E30 /* ViewController.h */,
 				39E8E0FB15B2124800104E30 /* ViewController.m */,
+				39E8E16815B23FF700104E30 /* assets */,
 				39E8E14115B2395100104E30 /* CritterStamps */,
 				39E8E0E915B2124800104E30 /* Supporting Files */,
 			);
@@ -321,6 +324,14 @@
 			path = CritterStamps;
 			sourceTree = "<group>";
 		};
+		39E8E16815B23FF700104E30 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				39E8E16915B2401300104E30 /* logo-arrow-left.jpeg */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,7 +359,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Noblis Inc.";
+				ORGANIZATIONNAME = "NinjaSudo Inc.";
 			};
 			buildConfigurationList = 39E8E0D815B2124800104E30 /* Build configuration list for PBXProject "logo-a-go-go" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -395,6 +406,7 @@
 				39E8E16515B2395200104E30 /* sir-critter.png in Resources */,
 				39E8E16615B2395200104E30 /* surprisedcritter.png in Resources */,
 				39E8E16715B2395200104E30 /* tron-critter.png in Resources */,
+				39E8E16A15B2401300104E30 /* logo-arrow-left.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,11 +512,7 @@
 					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
 					"\"$(SRCROOT)/logo-a-go-go/CrittercismSDK-crashonly\"",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-					"-fobjc-arc",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -522,11 +530,7 @@
 					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
 					"\"$(SRCROOT)/logo-a-go-go/CrittercismSDK-crashonly\"",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-					"-fobjc-arc",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
