@@ -10,6 +10,7 @@
 
 #import "AFPhotoEditorController.h"
 #import "SceneCaptureViewController.h"
+#import "PuttyView.h"
 
 @interface ParentViewController : UIViewController <UIGestureRecognizerDelegate,
                                                             SceneCaptureDelegate,
@@ -32,17 +33,28 @@
 #pragma mark - Gesture Delegate
 @property (nonatomic, strong) IBOutlet UITapGestureRecognizer *tapRecognizer;
 @property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *swipeLeftRecognizer;
+@property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *swipeRightRecognizer;
 
 - (IBAction)handleTapFrom:(UITapGestureRecognizer *)recognizer;
 - (IBAction)handleSwipeFrom:(UISwipeGestureRecognizer *)recognizer;
 - (IBAction)handleRotationFrom:(UIRotationGestureRecognizer *)recognizer;
 
 #pragma mark -
+#pragma mark - Other Actions
+- (IBAction)stampImage:(id)sender;
+- (IBAction)shareImage:(id)sender;
+- (IBAction)returnToEditor:(id)sender;
+
+#pragma mark -
 #pragma mark - Overlay Menu
 - (void)unfoldMenuWithAnimationDuration:(float)duration;
 - (void)foldMenuWithAnimationDuration:(float)duration;
+- (void)setupHorizontalScrollView;
 
 #pragma mark - 
-#pragma mark - 
+#pragma mark - Support Methods
 - (void) captureImage;
+- (void) editImage;
+
+
 @end

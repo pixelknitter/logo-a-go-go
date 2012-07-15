@@ -10,10 +10,13 @@
 
 @implementation ParentViewController
 
-@synthesize stampMenu, stampArrow, stampScrollView,     // Stamp Menu
-unfolded, tapRecognizer, swipeLeftRecognizer,           // Gesture Recognition
-activeStampImage, stampImages, sceneImage,              // Stamp Images
+@synthesize stampMenu, stampArrow, stampScrollView,                 // Stamp Menu
+unfolded, tapRecognizer, swipeRightRecognizer, swipeLeftRecognizer, // Gesture Recognition
+activeStampImage, stampImages, sceneImage,                          // Stamp Images
 sceneCaptureController, afPhotoEditorController;
+
+int arrowOffset = 30;
+bool imageSelected = false;
 
 - (void)didReceiveMemoryWarning
 {
@@ -28,24 +31,19 @@ sceneCaptureController, afPhotoEditorController;
     [super viewDidLoad];
     // Present the modal for scene capture
     //self.sceneCaptureController.delegate = self;
-    NSLog(@"Loading Modal...");
-    @try {
-        [self captureImage];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Exception reason: %@ description: %@", exception.reason, exception.description);
-    }
-    // [self presentModalViewController:sceneCaptureController animated:YES];
-    NSLog(@"Loading Modal... done");
 }
+
+
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.stampImages = nil;
     self.stampScrollView = nil;
     self.stampMenu = nil;
     self.tapRecognizer = nil;
-	self.swipeLeftRecognizer = nil;
+	self.swipeRightRecognizer = nil;
+    self.swipeLeftRecognizer = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -53,6 +51,24 @@ sceneCaptureController, afPhotoEditorController;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    NSLog(@"Loading Modal...");
+    @try {
+        if(!imageSelected) {
+            [self captureImage];
+        } else {
+            [self editImage];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception reason: %@ description: %@", exception.reason, exception.description);
+        [self.stampMenu setHidden:FALSE];
+        self.unfolded = FALSE;
+        [self.view addGestureRecognizer:self.swipeRightRecognizer];
+        [self.view addGestureRecognizer:self.swipeLeftRecognizer];
+        [self setupHorizontalScrollView];
+    }
+    NSLog(@"Loading Modal... done");
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -92,7 +108,7 @@ sceneCaptureController, afPhotoEditorController;
     NSLog(@"capture image.");
     UIImagePickerController *imagePickController=[[UIImagePickerController alloc] init];
     NSLog(@"UI ImpagePicker Controller..");
-//    imagePickController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    //    imagePickController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePickController.sourceType=UIImagePickerControllerSourceTypeCamera;
     imagePickController.delegate = self;
     imagePickController.allowsEditing = NO;
@@ -103,25 +119,31 @@ sceneCaptureController, afPhotoEditorController;
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *image = self.sceneImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    AFPhotoEditorController *photoEditor = [[AFPhotoEditorController alloc] initWithImage:image];
+    imageSelected = true;
+    [picker dismissModalViewControllerAnimated:TRUE];
+    self.sceneImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    //    NSArray sessions = [[NSArray alloc] init];
+    //    // Capture the user's session and store it in an array
+    //    __block AFPhotoEditorSession *session = [photoEditor session];
+    //    [[self sessions] addObject:session];
+    //    
+    //    // Create a context with the maximum output resolution
+    //    AFPhotoEditorContext *context = [session createContext];
+    //    
+    //    [context renderInputImage:image completion:^(UIImage *result) {
+    //        // `result` will be nil if the session is canceled, or non-nil if the session was closed successfully and rendering completed
+    //        [[self sessions] removeObject:session];
+    //    }];
+    //                               
+    //                               
+    //    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)editImage
+{    
+    AFPhotoEditorController *photoEditor = [[AFPhotoEditorController alloc] initWithImage:self.sceneImage];
     photoEditor.delegate = self;
     [self presentModalViewController:photoEditor animated:TRUE];
-//    NSArray sessions = [[NSArray alloc] init];
-//    // Capture the user's session and store it in an array
-//    __block AFPhotoEditorSession *session = [photoEditor session];
-//    [[self sessions] addObject:session];
-//    
-//    // Create a context with the maximum output resolution
-//    AFPhotoEditorContext *context = [session createContext];
-//    
-//    [context renderInputImage:image completion:^(UIImage *result) {
-//        // `result` will be nil if the session is canceled, or non-nil if the session was closed successfully and rendering completed
-//        [[self sessions] removeObject:session];
-//    }];
-//                               
-//                               
-//    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -137,8 +159,8 @@ sceneCaptureController, afPhotoEditorController;
  */
 - (IBAction)handleTapFrom:(UITapGestureRecognizer *)recognizer {
 	
-//	CGPoint location = [recognizer locationInView:self.view];
-//	[self showImageWithText:@"tap" atPoint:location];
+    //	CGPoint location = [recognizer locationInView:self.view];
+    //	[self showImageWithText:@"tap" atPoint:location];
 }
 
 /*
@@ -148,12 +170,12 @@ sceneCaptureController, afPhotoEditorController;
     NSLog(@"Handling Gesture");
 	CGPoint location = [recognizer locationInView:self.stampArrow];
     
-    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft && !unfolded)
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft && !unfolded && location.x > 0)
     {
         NSLog(@"Left Swipe");
         [self unfoldMenuWithAnimationDuration: 0.75];
     }
-    else if (unfolded)
+    else if (recognizer.direction == UISwipeGestureRecognizerDirectionRight && unfolded && location.x >= 0)
     {
         NSLog(@"Right Swipe");
         [self foldMenuWithAnimationDuration: 0.75];
@@ -167,9 +189,9 @@ sceneCaptureController, afPhotoEditorController;
 	
 	//CGPoint location = [recognizer locationInView:self.view];
     
-//    CGAffineTransform transform = CGAffineTransformMakeRotation([recognizer rotation]);
-//    self.imageView.transform = transform;
-//	[self showImageWithText:@"rotation" atPoint:location];
+    //    CGAffineTransform transform = CGAffineTransformMakeRotation([recognizer rotation]);
+    //    self.imageView.transform = transform;
+    //	[self showImageWithText:@"rotation" atPoint:location];
 }
 
 - (void)unfoldMenuWithAnimationDuration:(float)duration
@@ -181,19 +203,13 @@ sceneCaptureController, afPhotoEditorController;
     [UIView animateWithDuration:duration animations:^{
         NSLog(@"Animated unfolding");
         CGPoint newCenter;
-        newCenter.x = (self.stampMenu.center.x)*0.40;
+        newCenter.x = self.stampMenu.center.x + arrowOffset - self.view.bounds.size.width;
         newCenter.y = self.stampMenu.center.y;
         self.stampMenu.center = newCenter;
         self.unfolded = YES;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:1.0 animations:^{
-            CGPoint newCenter;
-            NSLog(@"Animating unfolding");
-            newCenter.x = (self.stampMenu.center.x)*0.90;
-            newCenter.y = self.stampMenu.center.y;
-            self.stampMenu.center = newCenter;
-        }];
-        // Cache logos     
+        // Cache logos
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setActiveStamp:) name:@"ActiveStampTouched" object:nil];
     }];
 }
 
@@ -203,24 +219,20 @@ sceneCaptureController, afPhotoEditorController;
     [UIView animateWithDuration:duration animations:^{
         NSLog(@"We are animating the fold!");
         CGPoint newCenter;
-        newCenter.x = (self.stampMenu.center.x + self.view.bounds.size.width)*0.75;
+        newCenter.x = self.stampMenu.center.x - arrowOffset + self.view.bounds.size.width;
         newCenter.y = self.stampMenu.center.y;
         self.stampMenu.center = newCenter;
         self.unfolded = NO;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:1.0 animations:^{
-            CGPoint newCenter;
-            newCenter.x = self.stampMenu.center.x - 30 + self.view.bounds.size.width;
-            newCenter.y = self.stampMenu.center.y;
-            self.stampMenu.center = newCenter;
-        }];
         // Uncache logos
+//        [stampImages removeAllObjects];
+        [[NSNotificationCenter defaultCenter] removeObserver:self]; 
     }];
 }
 
 - (void)setupHorizontalScrollView
 {
-//    self.stampScrollView.delegate = self;
+    //    self.stampScrollView.delegate = self;
     
     //[self.stampScrollView setBackgroundColor:[UIColor blackColor]];
     [stampScrollView setCanCancelContentTouches:NO];
@@ -229,78 +241,78 @@ sceneCaptureController, afPhotoEditorController;
     stampScrollView.clipsToBounds = NO;
     stampScrollView.scrollEnabled = YES;
     stampScrollView.scrollsToTop = NO;
-//    stampScrollView.pagingEnabled = YES;
+    //    stampScrollView.pagingEnabled = YES;
     
     
-//    // Find the files
-//    NSFileManager *filemgr;
-//    NSString *currentPath;
-//    NSArray *filelist;
-//    int count;
-//    int i;
-//    
-//    [[NSBundle mainBundle] pathForResource:@"/" ofType:@"png" inDirectory:@"assets/"];
-//    
-//    // Make sure it's an image
-//    NSString *file = @"…"; // path to some file
-//    CFStringRef fileExtension = (CFStringRef) [file pathExtension];
-//    CFStringRef fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
-//    
-//    if (UTTypeConformsTo(fileUTI, kUTTypeImage)) NSLog(@"This is an image");
-//    
-//    CFRelease(fileUTI);
-//    
-//    filemgr =[NSFileManager defaultManager];
-//    currentPath = [filemgr currentDirectoryPath];
-//    
-//    NSString *path = [[NSString alloc] initWithString:@"%d/assets", currentPath];
-//    
-//    filelist = [filemgr contentsOfDirectoryAtPath:@"/" error:NULL];
-//    count = [filelist count];
-//    
-//    for (i = 0; i < count; i++)
-//        NSLog(@"%@", [filelist objectAtIndex: i]);
-//    
-//    
-//    /////////////////////////////// threaded solution just need a file name and iterate
-//    
-//    // get a data provider referencing the relevant file
-//    CGDataProviderRef dataProvider = CGDataProviderCreateWithFilename(filename);
-//    
-//    // use the data provider to get a CGImage; release the data provider
-//    CGImageRef image = CGImageCreateWithPNGDataProvider(dataProvider, NULL, NO, 
-//                                                        kCGRenderingIntentDefault);
-//    CGDataProviderRelease(dataProvider);
-//    
-//    // make a bitmap context of a suitable size to draw to, forcing decode
-//    size_t width = CGImageGetWidth(image);
-//    size_t height = CGImageGetHeight(image);
-//    unsigned char *imageBuffer = (unsigned char *)malloc(width*height*4);
-//    
-//    CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
-//    
-//    CGContextRef imageContext =
-//    CGBitmapContextCreate(imageBuffer, width, height, 8, width*4, colourSpace,
-//                          kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little);
-//    
-//    CGColorSpaceRelease(colourSpace);
-//    
-//    // draw the image to the context, release it
-//    CGContextDrawImage(imageContext, CGRectMake(0, 0, width, height), image);
-//    CGImageRelease(image);
-//    
-//    // now get an image ref from the context
-//    CGImageRef outputImage = CGBitmapContextCreateImage(imageContext);
-//    
-//    // post that off to the main thread, where you might do something like
-//    // [UIImage imageWithCGImage:outputImage]
-//    [self performSelectorOnMainThread:@selector(haveThisImage:) 
-//                           withObject:[NSValue valueWithPointer:outputImage] waitUntilDone:YES];
-//    
-//    // clean up
-//    CGImageRelease(outputImage);
-//    CGContextRelease(imageContext);
-//    free(imageBuffer);
+    //    // Find the files
+    //    NSFileManager *filemgr;
+    //    NSString *currentPath;
+    //    NSArray *filelist;
+    //    int count;
+    //    int i;
+    //    
+    //    [[NSBundle mainBundle] pathForResource:@"/" ofType:@"png" inDirectory:@"assets/"];
+    //    
+    //    // Make sure it's an image
+    //    NSString *file = @"…"; // path to some file
+    //    CFStringRef fileExtension = (CFStringRef) [file pathExtension];
+    //    CFStringRef fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
+    //    
+    //    if (UTTypeConformsTo(fileUTI, kUTTypeImage)) NSLog(@"This is an image");
+    //    
+    //    CFRelease(fileUTI);
+    //    
+    //    filemgr =[NSFileManager defaultManager];
+    //    currentPath = [filemgr currentDirectoryPath];
+    //    
+    //    NSString *path = [[NSString alloc] initWithString:@"%d/assets", currentPath];
+    //    
+    //    filelist = [filemgr contentsOfDirectoryAtPath:@"/" error:NULL];
+    //    count = [filelist count];
+    //    
+    //    for (i = 0; i < count; i++)
+    //        NSLog(@"%@", [filelist objectAtIndex: i]);
+    //    
+    //    
+    //    /////////////////////////////// threaded solution just need a file name and iterate
+    //    
+    //    // get a data provider referencing the relevant file
+    //    CGDataProviderRef dataProvider = CGDataProviderCreateWithFilename(filename);
+    //    
+    //    // use the data provider to get a CGImage; release the data provider
+    //    CGImageRef image = CGImageCreateWithPNGDataProvider(dataProvider, NULL, NO, 
+    //                                                        kCGRenderingIntentDefault);
+    //    CGDataProviderRelease(dataProvider);
+    //    
+    //    // make a bitmap context of a suitable size to draw to, forcing decode
+    //    size_t width = CGImageGetWidth(image);
+    //    size_t height = CGImageGetHeight(image);
+    //    unsigned char *imageBuffer = (unsigned char *)malloc(width*height*4);
+    //    
+    //    CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
+    //    
+    //    CGContextRef imageContext =
+    //    CGBitmapContextCreate(imageBuffer, width, height, 8, width*4, colourSpace,
+    //                          kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little);
+    //    
+    //    CGColorSpaceRelease(colourSpace);
+    //    
+    //    // draw the image to the context, release it
+    //    CGContextDrawImage(imageContext, CGRectMake(0, 0, width, height), image);
+    //    CGImageRelease(image);
+    //    
+    //    // now get an image ref from the context
+    //    CGImageRef outputImage = CGBitmapContextCreateImage(imageContext);
+    //    
+    //    // post that off to the main thread, where you might do something like
+    //    // [UIImage imageWithCGImage:outputImage]
+    //    [self performSelectorOnMainThread:@selector(haveThisImage:) 
+    //                           withObject:[NSValue valueWithPointer:outputImage] waitUntilDone:YES];
+    //    
+    //    // clean up
+    //    CGImageRelease(outputImage);
+    //    CGContextRelease(imageContext);
+    //    free(imageBuffer);
     
     ///////////////////////////// simple solution for getting images loaded
     
@@ -308,25 +320,24 @@ sceneCaptureController, afPhotoEditorController;
     NSInteger tot=0;
     CGFloat cx = 0;
     for (; ; nimages++) {
+        NSLog(@"image number: %d ", nimages);
         NSString *imageName = [NSString stringWithFormat:@"image%d.png", nimages];
         UIImage *image = [UIImage imageNamed:imageName];
         if (tot==15) {
             break;
         }
-        if (4==nimages) {
-            nimages=0;
-        }
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        
-        CGRect rect = imageView.frame;
-        rect.size.height = 40;
-        rect.size.width = 40;
+        CGRect rect;
+        int boundHeight = self.stampScrollView.bounds.size.height;
+        int scalar = image.size.width/image.size.height||image.size.height;
+        rect.size.height = boundHeight;
+        rect.size.width = boundHeight/scalar;
         rect.origin.x = cx;
         rect.origin.y = 0;
+        PuttyView *imageView = [[PuttyView alloc] initWithFrame:rect];
+        imageView.contentView = [[UIImageView alloc]initWithImage:image];
         
-        imageView.frame = rect;
-        
+        [self.stampImages addObject:imageView];
         [stampScrollView addSubview:imageView];
         
         cx += imageView.frame.size.width+5;
@@ -336,25 +347,51 @@ sceneCaptureController, afPhotoEditorController;
     [stampScrollView setContentSize:CGSizeMake(cx, [stampScrollView bounds].size.height)];
 }
 
+- (void) setActiveStamp:(NSNotification*)notification
+{
+    PuttyView *imageView = [notification object];
+    if(imageView.superview == stampScrollView){
+
+        self.activeStampImage = imageView.contentView.image;
+        
+        CGRect frame = imageView.frame;
+        
+        NSLog(@"%@, %@, %@", NSStringFromCGRect(stampMenu.frame), NSStringFromCGRect(stampScrollView.frame), NSStringFromCGRect(frame));
+        
+        frame.origin.y = stampMenu.frame.origin.y + stampScrollView.frame.origin.y + frame.origin.y;
+        
+        imageView.frame = frame;
+    
+        [imageView removeFromSuperview];
+        [self.view addSubview:imageView];
+    }
+}
+
 #pragma mark -
 #pragma mark - AFPhotoEditorControllerDelegate
 
 - (void)photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
 {
+    // Set up Overlay Menu
     self.unfolded = FALSE;
+    [self.view addGestureRecognizer:self.swipeRightRecognizer];
     [self.view addGestureRecognizer:self.swipeLeftRecognizer];
+    // Make the overlay menu visible
+    [self.stampMenu setHidden:FALSE];
+    // Make Buttons for Share visible
+    
     // Handle the result image here
     self.afPhotoEditorController = editor;
-    // Make the overly menu visible
-    [self.stampMenu setHidden:FALSE];
-//    // Get the session
-//    AFPhotoEditorSession *session = [editor session];
-//    // Instantiate the context
-//    AFPhotoEditorContext *context = [session createContextWithSize:CGSizeMake(1500, 1500)];
-//    
-//    [context renderInputImage:image completion:^(UIImage *result) {
-//        // Handle the result image here.
-//    }];
+    //self.sceneImage = image;
+    // Get the session
+    AFPhotoEditorSession *session = [editor session];
+    // Instantiate the context
+    AFPhotoEditorContext *context = [session createContextWithSize:CGSizeMake(1500, 1500)];
+    
+    [context renderInputImage:image completion:^(UIImage *result) {
+        self.sceneImage = result;
+        [self.view addSubview:[[UIImageView alloc ] initWithImage:self.sceneImage]];
+    }];
     
     // Composite the stamp with the scene image
 }
@@ -371,25 +408,23 @@ sceneCaptureController, afPhotoEditorController;
 
 - (void)imageCaptured:(UIImage *)image
 {
-    
-//    [self initWithImage:image];
-    
-    // Cache some logos in the stampScrollView
+    // Cache some logos in the stampScrollView and get ready to stamp
     [self setupHorizontalScrollView];
 }
 
 - (void)imageCaptureFailed
 {
     // reload modal view
-    [self presentModalViewController:sceneCaptureController animated:YES];
+    [self captureImage];
 }
 
 #pragma mark -
-#pragma mark - ShareDelegate Methods
+#pragma mark - Share Methods
 
-- (void)shareImage:(UIImage *) image
+- (IBAction)stampImage:(id)sender
 {
     UIImage *image2 = self.activeStampImage;
+    UIImage *image = self.sceneImage;
     UIGraphicsBeginImageContext(image.size);
     [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
     [image2 drawInRect:CGRectMake(10,10,image2.size.width,image2.size.height)
@@ -397,10 +432,20 @@ sceneCaptureController, afPhotoEditorController;
     UIImage *compositeImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-//    [NSNotificationCenter
+    //    [NSNotificationCenter defaultCenter]
     // Open Share modal
     //    UIViewController *shareViewController; // TEMP
     //    [self presentModalViewController:shareViewController animated:YES];
+}
+
+- (IBAction)shareImage:(id)sender
+{
+    // TODO
+}
+
+- (IBAction)returnToEditor:(id)sender
+{
+    [self editImage];
 }
 
 @end
