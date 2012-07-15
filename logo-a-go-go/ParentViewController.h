@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ParentViewController.h
 //  logo-a-go-go
 //
 //  Created by Eddie Freeman on 7/14/12.
@@ -10,7 +10,9 @@
 
 #import "AFPhotoEditorController.h"
 
-@interface ViewController : AFPhotoEditorController <UIGestureRecognizerDelegate>
+@interface ParentViewController : AFPhotoEditorController <UIGestureRecognizerDelegate>
+
+@property (nonatomic, weak) UIViewController *sceneCaptureController;
 
 @property (nonatomic, strong) IBOutlet UIView *stampMenu;
 @property (nonatomic, strong) IBOutlet UIScrollView *stampScrollView;

@@ -17,7 +17,7 @@
 		39E8E0F315B2124800104E30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0F215B2124800104E30 /* AppDelegate.m */; };
 		39E8E0F615B2124800104E30 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0F415B2124800104E30 /* MainStoryboard_iPhone.storyboard */; };
 		39E8E0F915B2124800104E30 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */; };
-		39E8E0FC15B2124800104E30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0FB15B2124800104E30 /* ViewController.m */; };
+		39E8E0FC15B2124800104E30 /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0FB15B2124800104E30 /* ParentViewController.m */; };
 		39E8E10615B214B000104E30 /* libQuickPrintSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10315B214B000104E30 /* libQuickPrintSDK.a */; };
 		39E8E11115B214CA00104E30 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10E15B214CA00104E30 /* libAviarySDK.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		39E8E11215B214CA00104E30 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */; };
@@ -79,8 +79,8 @@
 		39E8E0F215B2124800104E30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		39E8E0F515B2124800104E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		39E8E0F815B2124800104E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		39E8E0FA15B2124800104E30 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		39E8E0FB15B2124800104E30 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		39E8E0FA15B2124800104E30 /* ParentViewController.h */ = {isa = PBXFileReference; path = ParentViewController.h; sourceTree = "<group>"; };
+		39E8E0FB15B2124800104E30 /* ParentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentViewController.m; sourceTree = "<group>"; };
 		39E8E10315B214B000104E30 /* libQuickPrintSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libQuickPrintSDK.a; sourceTree = "<group>"; };
 		39E8E10415B214B000104E30 /* WAG_CheckoutContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAG_CheckoutContext.h; sourceTree = "<group>"; };
 		39E8E10515B214B000104E30 /* WAG_ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAG_ImageData.h; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 				39E8E0F215B2124800104E30 /* AppDelegate.m */,
 				39E8E0F415B2124800104E30 /* MainStoryboard_iPhone.storyboard */,
 				39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */,
-				39E8E0FA15B2124800104E30 /* ViewController.h */,
-				39E8E0FB15B2124800104E30 /* ViewController.m */,
+				39E8E0FA15B2124800104E30 /* ParentViewController.h */,
+				39E8E0FB15B2124800104E30 /* ParentViewController.m */,
 				39E8E16815B23FF700104E30 /* assets */,
 				39E8E14115B2395100104E30 /* CritterStamps */,
 				39E8E0E915B2124800104E30 /* Supporting Files */,
@@ -462,7 +462,7 @@
 			files = (
 				39E8E0EF15B2124800104E30 /* main.m in Sources */,
 				39E8E0F315B2124800104E30 /* AppDelegate.m in Sources */,
-				39E8E0FC15B2124800104E30 /* ViewController.m in Sources */,
+				39E8E0FC15B2124800104E30 /* ParentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

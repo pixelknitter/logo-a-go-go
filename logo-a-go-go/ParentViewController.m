@@ -1,18 +1,19 @@
 //
-//  ViewController.m
+//  ParentViewController.m
 //  logo-a-go-go
 //
 //  Created by Eddie Freeman on 7/14/12.
 //  Copyright (c) 2012 NinjaSudo Inc. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ParentViewController.h"
 
-@implementation ViewController
+@implementation ParentViewController
 
 @synthesize stampMenu, stampArrow, stampScrollView,     // Stamp Menu
 unfolded, tapRecognizer, swipeLeftRecognizer,           // Gesture Recognition
-activeStampImage, stampImages;                          // Stamp Images
+activeStampImage, stampImages,                          // Stamp Images
+sceneCaptureController, delegate;
 
 - (void)didReceiveMemoryWarning
 {
@@ -209,6 +210,7 @@ activeStampImage, stampImages;                          // Stamp Images
 {
     // Handle cancelation here
     // Load sceneCamera/scenePicker modal
+    [self presentModalViewController:sceneCaptureController animated:YES];
 }
 
 @end
