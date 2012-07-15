@@ -13,7 +13,8 @@
 @synthesize stampMenu, stampArrow, stampScrollView,                 // Stamp Menu
 unfolded, tapRecognizer, swipeRightRecognizer, swipeLeftRecognizer, // Gesture Recognition
 activeStampImage, stampImages, sceneImage,                          // Stamp Images
-sceneCaptureController, afPhotoEditorController;
+afPhotoEditorController, compositeImage, facebook,
+stampButton, backButton, shareButton;
 
 int arrowOffset = 30;
 bool imageSelected = false;
@@ -31,9 +32,8 @@ bool imageSelected = false;
     [super viewDidLoad];
     // Present the modal for scene capture
     //self.sceneCaptureController.delegate = self;
+    //[self fbAuthorize];
 }
-
-
 
 - (void)viewDidUnload
 {
@@ -58,6 +58,7 @@ bool imageSelected = false;
         } else {
             [self editImage];
         }
+        NSLog(@"Loading Modal... done");
     }
     @catch (NSException *exception) {
         NSLog(@"Exception reason: %@ description: %@", exception.reason, exception.description);
@@ -67,8 +68,6 @@ bool imageSelected = false;
         [self.view addGestureRecognizer:self.swipeLeftRecognizer];
         [self setupHorizontalScrollView];
     }
-    NSLog(@"Loading Modal... done");
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -100,6 +99,71 @@ bool imageSelected = false;
     [NSException raise:NSInvalidArgumentException
                 format:@"Foo must not be nil"];
 }
+
+#pragma mark -
+#pragma mark - Facebook Methods
+
+- (void)fbDidNotLogin:(BOOL)cancelled {
+    
+}
+
+- (void)fbDidLogout {
+    
+}
+- (void)fbSessionInvalidated {
+    
+}
+
+- (void)fbDidExtendToken:(NSString*)accessToken
+               expiresAt:(NSDate*)expiresAt {
+    
+}
+
+
+-(void)fbAuthorize {
+    facebook = [[Facebook alloc] initWithAppId:@"272841182793156" andDelegate:self];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"] 
+        && [defaults objectForKey:@"FBExpirationDateKey"]) {
+        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+    }
+    
+    if (![facebook isSessionValid]) 
+    {                
+        NSArray *permissions = [[NSArray alloc] initWithObjects:
+                                @"publish_actions", 
+                                nil];
+        [facebook authorize:permissions];
+    }        
+}
+
+
+-(void)fbPostPhoto {            
+    NSMutableDictionary *variables = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    [variables setObject:@"http://yoururl.com" forKey:@"link"];
+    [variables setObject:self.compositeImage forKey:@"picture"];
+    [variables setObject:@"Name for the post" forKey:@"name"];
+    [variables setObject:@" " forKey:@"caption"];
+    [variables setObject:@"Download my app for the iPhone NOW." forKey:@"description"];
+    
+    [facebook requestWithGraphPath:@"me/feed"andParams:variables andHttpMethod:@"POST" andDelegate:self];     
+    
+}
+
+
+
+- (void)fbDidLogin {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+    
+}
+
+
 
 #pragma mark -
 #pragma mark - Camera Modal Methods
@@ -378,20 +442,25 @@ bool imageSelected = false;
     [self.view addGestureRecognizer:self.swipeLeftRecognizer];
     // Make the overlay menu visible
     [self.stampMenu setHidden:FALSE];
-    // Make Buttons for Share visible
+    // Make the top buttons visible
+    [self.backButton setHidden:FALSE];
+    [self.stampButton setHidden:FALSE];
+    [self.shareButton setHidden:FALSE];
     
+    // Make Buttons for Share visible
+    self.sceneImage = image;
     // Handle the result image here
     self.afPhotoEditorController = editor;
-    //self.sceneImage = image;
-    // Get the session
-    AFPhotoEditorSession *session = [editor session];
-    // Instantiate the context
-    AFPhotoEditorContext *context = [session createContextWithSize:CGSizeMake(1500, 1500)];
-    
-    [context renderInputImage:image completion:^(UIImage *result) {
-        self.sceneImage = result;
-        [self.view addSubview:[[UIImageView alloc ] initWithImage:self.sceneImage]];
-    }];
+//    
+//    // Get the session
+//    AFPhotoEditorSession *session = [editor session];
+//    // Instantiate the context
+//    AFPhotoEditorContext *context = [session createContextWithSize:CGSizeMake(1500, 1500)];
+//    
+//    [context renderInputImage:image completion:^(UIImage *result) {
+//        self.sceneImage = result;
+//        [self.view addSubview:[[UIImageView alloc ] initWithImage:self.sceneImage]];
+//    }];
     
     // Composite the stamp with the scene image
 }
@@ -400,7 +469,7 @@ bool imageSelected = false;
 {
     // Handle cancelation here
     // Load sceneCamera/scenePicker modal
-    [self presentModalViewController:sceneCaptureController animated:YES];
+    [self captureImage];
 }
 
 #pragma mark -
@@ -424,13 +493,18 @@ bool imageSelected = false;
 - (IBAction)stampImage:(id)sender
 {
     UIImage *image2 = self.activeStampImage;
-    UIImage *image = self.sceneImage;
-    UIGraphicsBeginImageContext(image.size);
-    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-    [image2 drawInRect:CGRectMake(10,10,image2.size.width,image2.size.height)
-             blendMode:kCGBlendModeNormal alpha:1.0];
-    UIImage *compositeImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    if(self.sceneImage) {
+        UIImage *image = self.sceneImage;
+        UIGraphicsBeginImageContext(image.size);
+        [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+        [image2 drawInRect:CGRectMake(10,10,image2.size.width,image2.size.height)
+                 blendMode:kCGBlendModeNormal alpha:1.0];
+        self.compositeImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    } else {
+        self.compositeImage = image2;
+    }
+    
     
     //    [NSNotificationCenter defaultCenter]
     // Open Share modal
@@ -440,7 +514,7 @@ bool imageSelected = false;
 
 - (IBAction)shareImage:(id)sender
 {
-    // TODO
+    [self fbPostPhoto];
 }
 
 - (IBAction)returnToEditor:(id)sender

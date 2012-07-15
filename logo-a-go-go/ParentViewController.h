@@ -11,23 +11,31 @@
 #import "AFPhotoEditorController.h"
 #import "SceneCaptureViewController.h"
 #import "PuttyView.h"
+#import "Facebook.h"
 
 @interface ParentViewController : UIViewController <UIGestureRecognizerDelegate,
                                                             SceneCaptureDelegate,
                                                             AFPhotoEditorControllerDelegate,
                                                             UIImagePickerControllerDelegate,
-                                                            UINavigationControllerDelegate>
+                                                            UINavigationControllerDelegate,
+                                                            FBSessionDelegate,
+                                                            FBRequestDelegate> 
 
-@property (nonatomic, weak) SceneCaptureViewController *sceneCaptureController;
+@property (nonatomic, retain) Facebook *facebook;
+
 @property (nonatomic, weak) AFPhotoEditorController *afPhotoEditorController;
 
 @property (nonatomic, strong) IBOutlet UIView *stampMenu;
 @property (nonatomic, strong) IBOutlet UIScrollView *stampScrollView;
 @property (nonatomic, weak) IBOutlet UIImageView *stampArrow;
+@property (nonatomic, weak) IBOutlet UIButton *backButton;
+@property (nonatomic, weak) IBOutlet UIButton *stampButton;
+@property (nonatomic, weak) IBOutlet UIButton *shareButton;
 @property (nonatomic, weak) UIImage *activeStampImage;
 @property (nonatomic, weak) UIImage *sceneImage;
 @property (nonatomic, strong) NSMutableArray *stampImages;
 @property (nonatomic) BOOL unfolded;
+@property (nonatomic, retain) UIImage *compositeImage;
 
 #pragma mark -
 #pragma mark - Gesture Delegate
