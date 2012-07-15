@@ -512,7 +512,11 @@
 					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
 					"\"$(SRCROOT)/logo-a-go-go/CrittercismSDK-crashonly\"",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-fobjc-arc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -530,7 +534,11 @@
 					"\"$(SRCROOT)/logo-a-go-go/AviarySDK\"",
 					"\"$(SRCROOT)/logo-a-go-go/CrittercismSDK-crashonly\"",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-fobjc-arc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

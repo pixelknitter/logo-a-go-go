@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate>
+#import "AFPhotoEditorController.h"
+
+@interface ViewController : AFPhotoEditorController <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *stampMenu;
 @property (nonatomic, strong) IBOutlet UIScrollView *stampScrollView;

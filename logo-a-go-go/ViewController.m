@@ -27,6 +27,10 @@ activeStampImage, stampImages;                          // Stamp Images
     [super viewDidLoad];
     self.unfolded = FALSE;
     [self.view addGestureRecognizer:self.swipeLeftRecognizer];
+    
+    // TODO : Have this occur on the delegate return
+//    UIImage *modalImage = [UIImage imageNamed:@""];
+//    AFPhotoEditorController *controller = [self initWithImage:modalImage];
 //    self.stampScrollView
     // Cache some logos in the stampScrollView
     
@@ -106,12 +110,12 @@ activeStampImage, stampImages;                          // Stamp Images
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft && !unfolded)
     {
         NSLog(@"Left Swipe");
-        [self unfoldMenuWithAnimationDuration: 0.5];
+        [self unfoldMenuWithAnimationDuration: 0.75];
     }
     else if (unfolded)
     {
         NSLog(@"Right Swipe");
-        [self foldMenuWithAnimationDuration: 0.5];
+        [self foldMenuWithAnimationDuration: 0.75];
     }
 }
 
@@ -136,20 +140,19 @@ activeStampImage, stampImages;                          // Stamp Images
     [UIView animateWithDuration:duration animations:^{
         NSLog(@"Animated unfolding");
         CGPoint newCenter;
-        newCenter.x = self.stampMenu.center.x + 30 - self.view.bounds.size.width;
+        newCenter.x = (self.stampMenu.center.x)*0.40;
         newCenter.y = self.stampMenu.center.y;
         self.stampMenu.center = newCenter;
-//        [UIView animateWithDuration:1.0 animations:^{
-//            CGPoint newCenter;
-//            NSLog(@"Animating unfolding");
-//            newCenter.x = self.stampMenu.center.x - self.view.bounds.size.width/2;
-//            newCenter.y = self.stampMenu.center.y;
-//            [self.stampMenu setCenter:newCenter];
-//        }];
-         self.unfolded = YES;
+        self.unfolded = YES;
     } completion:^(BOOL finished) {
-        // Cache logos
-                
+        [UIView animateWithDuration:1.0 animations:^{
+            CGPoint newCenter;
+            NSLog(@"Animating unfolding");
+            newCenter.x = (self.stampMenu.center.x)*0.90;
+            newCenter.y = self.stampMenu.center.y;
+            self.stampMenu.center = newCenter;
+        }];
+        // Cache logos     
     }];
 }
 
@@ -159,19 +162,53 @@ activeStampImage, stampImages;                          // Stamp Images
     [UIView animateWithDuration:duration animations:^{
         NSLog(@"We are animating the fold!");
         CGPoint newCenter;
-        newCenter.x = self.stampMenu.center.x - 30 + self.view.bounds.size.width;
+        newCenter.x = (self.stampMenu.center.x + self.view.bounds.size.width)*0.75;
         newCenter.y = self.stampMenu.center.y;
-        [self.stampMenu setCenter:newCenter];
-//        [UIView animateWithDuration:1.0 animations:^{
-//            CGPoint newCenter;
-//            newCenter.x = self.stampMenu.center.x + self.view.bounds.size.width/2;
-//            newCenter.y = self.stampMenu.center.y;
-//            [self.stampMenu setCenter:newCenter];
-//        }];
+        self.stampMenu.center = newCenter;
         self.unfolded = NO;
     } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0 animations:^{
+            CGPoint newCenter;
+            newCenter.x = self.stampMenu.center.x - 30 + self.view.bounds.size.width;
+            newCenter.y = self.stampMenu.center.y;
+            self.stampMenu.center = newCenter;
+        }];
         // Uncache logos
     }];
+}
+
+#pragma mark -
+#pragma mark - AFPhotoEditorControllerDelegate
+
+- (void)photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
+{
+    // Handle the result image here
+    UIImage *image2 = self.activeStampImage;
+    UIGraphicsBeginImageContext(image.size);
+    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+    [image2 drawInRect:CGRectMake(10,10,image2.size.width,image2.size.height)
+             blendMode:kCGBlendModeNormal alpha:1.0];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    // Pass new image to shared modal
+    
+//    // Get the session
+//    AFPhotoEditorSession *session = [editor session];
+//    // Instantiate the context
+//    AFPhotoEditorContext *context = [session createContextWithSize:CGSizeMake(1500, 1500)];
+//    
+//    [context renderInputImage:image completion:^(UIImage *result) {
+//        // Handle the result image here.
+//    }];
+    
+    // Composite the stamp with the scene image
+}
+
+- (void)photoEditorCanceled:(AFPhotoEditorController *)editor
+{
+    // Handle cancelation here
+    // Load sceneCamera/scenePicker modal
 }
 
 @end
