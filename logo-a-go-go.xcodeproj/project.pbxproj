@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0DDD419415B2B5E8003BE131 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DDD418715B2B5E8003BE131 /* FBDialog.bundle */; };
 		0DDD419515B2B5E8003BE131 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDD418D15B2B5E8003BE131 /* libfacebook_ios_sdk.a */; };
+		39820E7015B2C0A5008B8508 /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39820E6F15B2C0A5008B8508 /* ParentViewController.m */; };
 		39E8E0E315B2124800104E30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E215B2124800104E30 /* UIKit.framework */; };
 		39E8E0E515B2124800104E30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E415B2124800104E30 /* Foundation.framework */; };
 		39E8E0E715B2124800104E30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E615B2124800104E30 /* CoreGraphics.framework */; };
@@ -17,7 +18,6 @@
 		39E8E0F315B2124800104E30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0F215B2124800104E30 /* AppDelegate.m */; };
 		39E8E0F615B2124800104E30 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0F415B2124800104E30 /* MainStoryboard_iPhone.storyboard */; };
 		39E8E0F915B2124800104E30 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */; };
-		39E8E0FC15B2124800104E30 /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8E0FB15B2124800104E30 /* ParentViewController.m */; };
 		39E8E10615B214B000104E30 /* libQuickPrintSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10315B214B000104E30 /* libQuickPrintSDK.a */; };
 		39E8E11115B214CA00104E30 /* libAviarySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E10E15B214CA00104E30 /* libAviarySDK.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		39E8E11215B214CA00104E30 /* AviarySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39E8E11015B214CA00104E30 /* AviarySDKResources.bundle */; };
@@ -69,6 +69,8 @@
 		0DDD419315B2B5E8003BE131 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0DDD41A615B2BB39003BE131 /* SceneCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneCaptureViewController.h; sourceTree = "<group>"; };
 		0DDD41A715B2BB39003BE131 /* SceneCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneCaptureViewController.m; sourceTree = "<group>"; };
+		39820E6E15B2C0A5008B8508 /* ParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentViewController.h; sourceTree = "<group>"; };
+		39820E6F15B2C0A5008B8508 /* ParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentViewController.m; sourceTree = "<group>"; };
 		39E8E0DE15B2124800104E30 /* logo-a-go-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "logo-a-go-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E8E0E215B2124800104E30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		39E8E0E415B2124800104E30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,8 +83,6 @@
 		39E8E0F215B2124800104E30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		39E8E0F515B2124800104E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		39E8E0F815B2124800104E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		39E8E0FA15B2124800104E30 /* ParentViewController.h */ = {isa = PBXFileReference; path = ParentViewController.h; sourceTree = "<group>"; };
-		39E8E0FB15B2124800104E30 /* ParentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentViewController.m; sourceTree = "<group>"; };
 		39E8E10315B214B000104E30 /* libQuickPrintSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libQuickPrintSDK.a; sourceTree = "<group>"; };
 		39E8E10415B214B000104E30 /* WAG_CheckoutContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAG_CheckoutContext.h; sourceTree = "<group>"; };
 		39E8E10515B214B000104E30 /* WAG_ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAG_ImageData.h; sourceTree = "<group>"; };
@@ -241,16 +241,14 @@
 				39E8E10715B214CA00104E30 /* AviarySDK */,
 				39E8E11315B229FE00104E30 /* CrittercismSDK-crashonly */,
 				39E8E10215B214B000104E30 /* WalgreensSDK */,
+				39820E6E15B2C0A5008B8508 /* ParentViewController.h */,
+				39820E6F15B2C0A5008B8508 /* ParentViewController.m */,
 				39E8E0F115B2124800104E30 /* AppDelegate.h */,
 				39E8E0F215B2124800104E30 /* AppDelegate.m */,
 				39E8E0F415B2124800104E30 /* MainStoryboard_iPhone.storyboard */,
 				39E8E0F715B2124800104E30 /* MainStoryboard_iPad.storyboard */,
-				39E8E0FA15B2124800104E30 /* ParentViewController.h */,
-				39E8E0FB15B2124800104E30 /* ParentViewController.m */,
 				0DDD41A615B2BB39003BE131 /* SceneCaptureViewController.h */,
 				0DDD41A715B2BB39003BE131 /* SceneCaptureViewController.m */,
-				39E8E0FA15B2124800104E30 /* ViewController.h */,
-				39E8E0FB15B2124800104E30 /* ViewController.m */,
 				39E8E16815B23FF700104E30 /* assets */,
 				39E8E14115B2395100104E30 /* CritterStamps */,
 				39E8E0E915B2124800104E30 /* Supporting Files */,
@@ -468,7 +466,7 @@
 			files = (
 				39E8E0EF15B2124800104E30 /* main.m in Sources */,
 				39E8E0F315B2124800104E30 /* AppDelegate.m in Sources */,
-				39E8E0FC15B2124800104E30 /* ParentViewController.m in Sources */,
+				39820E7015B2C0A5008B8508 /* ParentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
