@@ -13,7 +13,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view alpha="0.5" contentMode="scaleToFill" id="Mcn-VZ-dgW" userLabel="Slide View">
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" id="Mcn-VZ-dgW" userLabel="Slide View">
                                 <rect key="frame" x="290" y="166" width="320" height="128"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -65,10 +65,7 @@
         <image name="logo-arrow-left.jpeg" width="42" height="174"/>
     </resources>
     <classes>
-        <class className="AFPhotoEditorController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AFPhotoEditorController.h"/>
-        </class>
-        <class className="ParentViewController" superclassName="AFPhotoEditorController">
+        <class className="ParentViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParentViewController.h"/>
             <relationships>
                 <relationship kind="action" name="handleRotationFrom:" candidateClass="UIRotationGestureRecognizer"/>

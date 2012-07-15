@@ -12,8 +12,8 @@
 
 @synthesize stampMenu, stampArrow, stampScrollView,     // Stamp Menu
 unfolded, tapRecognizer, swipeLeftRecognizer,           // Gesture Recognition
-activeStampImage, stampImages,                          // Stamp Images
-sceneCaptureController;
+activeStampImage, stampImages, sceneImage,              // Stamp Images
+sceneCaptureController, afPhotoEditorController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -27,13 +27,16 @@ sceneCaptureController;
 {
     [super viewDidLoad];
     // Present the modal for scene capture
-    self.sceneCaptureController.delegate = self;
+    //self.sceneCaptureController.delegate = self;
     NSLog(@"Loading Modal...");
-    
-    [self presentModalViewController:sceneCaptureController animated:YES];
-    
-    self.unfolded = FALSE;
-    [self.view addGestureRecognizer:self.swipeLeftRecognizer];
+    @try {
+        [self captureImage];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception reason: %@ description: %@", exception.reason, exception.description);
+    }
+    // [self presentModalViewController:sceneCaptureController animated:YES];
+    NSLog(@"Loading Modal... done");
 }
 
 - (void)viewDidUnload
@@ -80,6 +83,45 @@ sceneCaptureController;
 -(IBAction) crashPressed:(id) sender {
     [NSException raise:NSInvalidArgumentException
                 format:@"Foo must not be nil"];
+}
+
+#pragma mark -
+#pragma mark - Camera Modal Methods
+-(void)captureImage
+{
+    NSLog(@"capture image.");
+    UIImagePickerController *imagePickController=[[UIImagePickerController alloc] init];
+    NSLog(@"UI ImpagePicker Controller..");
+//    imagePickController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickController.sourceType=UIImagePickerControllerSourceTypeCamera;
+    imagePickController.delegate = self;
+    imagePickController.allowsEditing = NO;
+    imagePickController.showsCameraControls = YES;
+    NSLog(@"Time to present the Modal");
+    [self presentModalViewController:imagePickController animated:YES];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = self.sceneImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    AFPhotoEditorController *photoEditor = [[AFPhotoEditorController alloc] initWithImage:image];
+    photoEditor.delegate = self;
+    [self presentModalViewController:photoEditor animated:TRUE];
+//    NSArray sessions = [[NSArray alloc] init];
+//    // Capture the user's session and store it in an array
+//    __block AFPhotoEditorSession *session = [photoEditor session];
+//    [[self sessions] addObject:session];
+//    
+//    // Create a context with the maximum output resolution
+//    AFPhotoEditorContext *context = [session createContext];
+//    
+//    [context renderInputImage:image completion:^(UIImage *result) {
+//        // `result` will be nil if the session is canceled, or non-nil if the session was closed successfully and rendering completed
+//        [[self sessions] removeObject:session];
+//    }];
+//                               
+//                               
+//    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -180,7 +222,7 @@ sceneCaptureController;
 {
 //    self.stampScrollView.delegate = self;
     
-    [self.stampScrollView setBackgroundColor:[UIColor blackColor]];
+    //[self.stampScrollView setBackgroundColor:[UIColor blackColor]];
     [stampScrollView setCanCancelContentTouches:NO];
     
     stampScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
@@ -299,18 +341,12 @@ sceneCaptureController;
 
 - (void)photoEditor:(AFPhotoEditorController *)editor finishedWithImage:(UIImage *)image
 {
+    self.unfolded = FALSE;
+    [self.view addGestureRecognizer:self.swipeLeftRecognizer];
     // Handle the result image here
-    UIImage *image2 = self.activeStampImage;
-    UIGraphicsBeginImageContext(image.size);
-    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-    [image2 drawInRect:CGRectMake(10,10,image2.size.width,image2.size.height)
-             blendMode:kCGBlendModeNormal alpha:1.0];
-    UIImage *compositeImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    // Pass new image to shared modal
-    UIViewController *shareViewController; // TEMP
-    [self presentModalViewController:shareViewController animated:YES];
+    self.afPhotoEditorController = editor;
+    // Make the overly menu visible
+    [self.stampMenu setHidden:FALSE];
 //    // Get the session
 //    AFPhotoEditorSession *session = [editor session];
 //    // Instantiate the context
@@ -335,7 +371,9 @@ sceneCaptureController;
 
 - (void)imageCaptured:(UIImage *)image
 {
-    [self initWithImage:image];
+    
+//    [self initWithImage:image];
+    
     // Cache some logos in the stampScrollView
     [self setupHorizontalScrollView];
 }
@@ -344,6 +382,25 @@ sceneCaptureController;
 {
     // reload modal view
     [self presentModalViewController:sceneCaptureController animated:YES];
+}
+
+#pragma mark -
+#pragma mark - ShareDelegate Methods
+
+- (void)shareImage:(UIImage *) image
+{
+    UIImage *image2 = self.activeStampImage;
+    UIGraphicsBeginImageContext(image.size);
+    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+    [image2 drawInRect:CGRectMake(10,10,image2.size.width,image2.size.height)
+             blendMode:kCGBlendModeNormal alpha:1.0];
+    UIImage *compositeImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+//    [NSNotificationCenter
+    // Open Share modal
+    //    UIViewController *shareViewController; // TEMP
+    //    [self presentModalViewController:shareViewController animated:YES];
 }
 
 @end
