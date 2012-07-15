@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0DDD419415B2B5E8003BE131 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DDD418715B2B5E8003BE131 /* FBDialog.bundle */; };
 		0DDD419515B2B5E8003BE131 /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDD418D15B2B5E8003BE131 /* libfacebook_ios_sdk.a */; };
+		39361DFA15B2C5A800D8BB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39361DF915B2C5A800D8BB39 /* CoreLocation.framework */; };
+		39361DFD15B2C74B00D8BB39 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39361DFC15B2C74B00D8BB39 /* AssetsLibrary.framework */; };
 		39820E7015B2C0A5008B8508 /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39820E6F15B2C0A5008B8508 /* ParentViewController.m */; };
 		39E8E0E315B2124800104E30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E215B2124800104E30 /* UIKit.framework */; };
 		39E8E0E515B2124800104E30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E8E0E415B2124800104E30 /* Foundation.framework */; };
@@ -69,6 +71,8 @@
 		0DDD419315B2B5E8003BE131 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		0DDD41A615B2BB39003BE131 /* SceneCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneCaptureViewController.h; sourceTree = "<group>"; };
 		0DDD41A715B2BB39003BE131 /* SceneCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneCaptureViewController.m; sourceTree = "<group>"; };
+		39361DF915B2C5A800D8BB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		39361DFC15B2C74B00D8BB39 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		39820E6E15B2C0A5008B8508 /* ParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentViewController.h; sourceTree = "<group>"; };
 		39820E6F15B2C0A5008B8508 /* ParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentViewController.m; sourceTree = "<group>"; };
 		39E8E0DE15B2124800104E30 /* logo-a-go-go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "logo-a-go-go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +161,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39361DFD15B2C74B00D8BB39 /* AssetsLibrary.framework in Frameworks */,
+				39361DFA15B2C5A800D8BB39 /* CoreLocation.framework in Frameworks */,
 				39E8E14015B22B0D00104E30 /* CoreData.framework in Frameworks */,
 				39E8E13E15B22B0200104E30 /* libsqlite3.0.dylib in Frameworks */,
 				39E8E13C15B22AF500104E30 /* libz.1.2.5.dylib in Frameworks */,
@@ -220,6 +226,8 @@
 		39E8E0E115B2124800104E30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39361DFC15B2C74B00D8BB39 /* AssetsLibrary.framework */,
+				39361DF915B2C5A800D8BB39 /* CoreLocation.framework */,
 				39E8E13F15B22B0D00104E30 /* CoreData.framework */,
 				39E8E13D15B22B0200104E30 /* libsqlite3.0.dylib */,
 				39E8E13B15B22AF400104E30 /* libz.1.2.5.dylib */,

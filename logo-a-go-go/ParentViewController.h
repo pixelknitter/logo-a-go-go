@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "AFPhotoEditorController.h"
+#import "SceneCaptureViewController.h"
 
-@interface ParentViewController : AFPhotoEditorController <UIGestureRecognizerDelegate>
+@interface ParentViewController : AFPhotoEditorController <UIGestureRecognizerDelegate,
+                                                            SceneCaptureDelegate>
 
-@property (nonatomic, weak) UIViewController *sceneCaptureController;
+@property (nonatomic, weak) SceneCaptureViewController *sceneCaptureController;
 
 @property (nonatomic, strong) IBOutlet UIView *stampMenu;
 @property (nonatomic, strong) IBOutlet UIScrollView *stampScrollView;

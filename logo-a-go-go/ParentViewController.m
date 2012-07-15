@@ -26,16 +26,13 @@ sceneCaptureController, delegate;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Present the modal for scene capture
+    self.sceneCaptureController.delegate = self;
+    NSLog(@"Loading Modal...");
+    [self presentModalViewController:sceneCaptureController animated:YES];
+    
     self.unfolded = FALSE;
     [self.view addGestureRecognizer:self.swipeLeftRecognizer];
-    
-    // TODO : Have this occur on the delegate return
-//    UIImage *modalImage = [UIImage imageNamed:@""];
-//    AFPhotoEditorController *controller = [self initWithImage:modalImage];
-//    self.stampScrollView
-    // Cache some logos in the stampScrollView
-    
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
@@ -193,7 +190,8 @@ sceneCaptureController, delegate;
     UIGraphicsEndImageContext();
     
     // Pass new image to shared modal
-    
+    UIViewController *shareViewController; // TEMP
+    [self presentModalViewController:shareViewController animated:YES];
 //    // Get the session
 //    AFPhotoEditorSession *session = [editor session];
 //    // Instantiate the context
@@ -210,6 +208,22 @@ sceneCaptureController, delegate;
 {
     // Handle cancelation here
     // Load sceneCamera/scenePicker modal
+    [self presentModalViewController:sceneCaptureController animated:YES];
+}
+
+#pragma mark -
+#pragma mark - SceneCaptureDelegate Methods
+
+- (void)imageCaptured:(UIImage *)image
+{
+    [self initWithImage:image];
+    // Cache some logos in the stampScrollView
+    
+}
+
+- (void)imageCaptureFailed
+{
+    // reload modal view
     [self presentModalViewController:sceneCaptureController animated:YES];
 }
 
