@@ -49,7 +49,7 @@
                         <outlet property="stampArrow" destination="rtd-bx-3Cg" id="wbF-jp-rbi"/>
                         <outlet property="stampMenu" destination="Mcn-VZ-dgW" id="WNs-Fq-QNb"/>
                         <outlet property="stampScrollView" destination="pxA-ud-6Et" id="Q5x-ix-QGc"/>
-                        <outlet property="swipeLeftRecognizer" destination="axl-EO-4de" id="tLy-m6-OpF"/>
+                        <outlet property="swipeLeftRecognizer" destination="axl-EO-4de" id="Oin-gk-DQr"/>
                     </connections>
                 </viewController>
                 <swipeGestureRecognizer direction="left" id="axl-EO-4de">
@@ -64,6 +64,24 @@
     <resources>
         <image name="logo-arrow-left.jpeg" width="42" height="174"/>
     </resources>
+    <classes>
+        <class className="AFPhotoEditorController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AFPhotoEditorController.h"/>
+        </class>
+        <class className="ParentViewController" superclassName="AFPhotoEditorController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ParentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handleRotationFrom:" candidateClass="UIRotationGestureRecognizer"/>
+                <relationship kind="action" name="handleSwipeFrom:" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="action" name="handleTapFrom:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="stampArrow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="stampMenu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="stampScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="swipeLeftRecognizer" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="outlet" name="tapRecognizer" candidateClass="UITapGestureRecognizer"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -14,7 +14,7 @@
 @interface ParentViewController : AFPhotoEditorController <UIGestureRecognizerDelegate,
                                                             SceneCaptureDelegate>
 
-@property (nonatomic, weak) SceneCaptureViewController *sceneCaptureController;
+@property (nonatomic, strong) SceneCaptureViewController *sceneCaptureController;
 
 @property (nonatomic, strong) IBOutlet UIView *stampMenu;
 @property (nonatomic, strong) IBOutlet UIScrollView *stampScrollView;

@@ -13,7 +13,7 @@
 @synthesize stampMenu, stampArrow, stampScrollView,     // Stamp Menu
 unfolded, tapRecognizer, swipeLeftRecognizer,           // Gesture Recognition
 activeStampImage, stampImages,                          // Stamp Images
-sceneCaptureController, delegate;
+sceneCaptureController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -29,6 +29,7 @@ sceneCaptureController, delegate;
     // Present the modal for scene capture
     self.sceneCaptureController.delegate = self;
     NSLog(@"Loading Modal...");
+    
     [self presentModalViewController:sceneCaptureController animated:YES];
     
     self.unfolded = FALSE;
@@ -175,6 +176,124 @@ sceneCaptureController, delegate;
     }];
 }
 
+- (void)setupHorizontalScrollView
+{
+//    self.stampScrollView.delegate = self;
+    
+    [self.stampScrollView setBackgroundColor:[UIColor blackColor]];
+    [stampScrollView setCanCancelContentTouches:NO];
+    
+    stampScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    stampScrollView.clipsToBounds = NO;
+    stampScrollView.scrollEnabled = YES;
+    stampScrollView.scrollsToTop = NO;
+//    stampScrollView.pagingEnabled = YES;
+    
+    
+//    // Find the files
+//    NSFileManager *filemgr;
+//    NSString *currentPath;
+//    NSArray *filelist;
+//    int count;
+//    int i;
+//    
+//    [[NSBundle mainBundle] pathForResource:@"/" ofType:@"png" inDirectory:@"assets/"];
+//    
+//    // Make sure it's an image
+//    NSString *file = @"…"; // path to some file
+//    CFStringRef fileExtension = (CFStringRef) [file pathExtension];
+//    CFStringRef fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
+//    
+//    if (UTTypeConformsTo(fileUTI, kUTTypeImage)) NSLog(@"This is an image");
+//    
+//    CFRelease(fileUTI);
+//    
+//    filemgr =[NSFileManager defaultManager];
+//    currentPath = [filemgr currentDirectoryPath];
+//    
+//    NSString *path = [[NSString alloc] initWithString:@"%d/assets", currentPath];
+//    
+//    filelist = [filemgr contentsOfDirectoryAtPath:@"/" error:NULL];
+//    count = [filelist count];
+//    
+//    for (i = 0; i < count; i++)
+//        NSLog(@"%@", [filelist objectAtIndex: i]);
+//    
+//    
+//    /////////////////////////////// threaded solution just need a file name and iterate
+//    
+//    // get a data provider referencing the relevant file
+//    CGDataProviderRef dataProvider = CGDataProviderCreateWithFilename(filename);
+//    
+//    // use the data provider to get a CGImage; release the data provider
+//    CGImageRef image = CGImageCreateWithPNGDataProvider(dataProvider, NULL, NO, 
+//                                                        kCGRenderingIntentDefault);
+//    CGDataProviderRelease(dataProvider);
+//    
+//    // make a bitmap context of a suitable size to draw to, forcing decode
+//    size_t width = CGImageGetWidth(image);
+//    size_t height = CGImageGetHeight(image);
+//    unsigned char *imageBuffer = (unsigned char *)malloc(width*height*4);
+//    
+//    CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
+//    
+//    CGContextRef imageContext =
+//    CGBitmapContextCreate(imageBuffer, width, height, 8, width*4, colourSpace,
+//                          kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little);
+//    
+//    CGColorSpaceRelease(colourSpace);
+//    
+//    // draw the image to the context, release it
+//    CGContextDrawImage(imageContext, CGRectMake(0, 0, width, height), image);
+//    CGImageRelease(image);
+//    
+//    // now get an image ref from the context
+//    CGImageRef outputImage = CGBitmapContextCreateImage(imageContext);
+//    
+//    // post that off to the main thread, where you might do something like
+//    // [UIImage imageWithCGImage:outputImage]
+//    [self performSelectorOnMainThread:@selector(haveThisImage:) 
+//                           withObject:[NSValue valueWithPointer:outputImage] waitUntilDone:YES];
+//    
+//    // clean up
+//    CGImageRelease(outputImage);
+//    CGContextRelease(imageContext);
+//    free(imageBuffer);
+    
+    ///////////////////////////// simple solution for getting images loaded
+    
+    NSUInteger nimages = 0;
+    NSInteger tot=0;
+    CGFloat cx = 0;
+    for (; ; nimages++) {
+        NSString *imageName = [NSString stringWithFormat:@"image%d.png", nimages];
+        UIImage *image = [UIImage imageNamed:imageName];
+        if (tot==15) {
+            break;
+        }
+        if (4==nimages) {
+            nimages=0;
+        }
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        CGRect rect = imageView.frame;
+        rect.size.height = 40;
+        rect.size.width = 40;
+        rect.origin.x = cx;
+        rect.origin.y = 0;
+        
+        imageView.frame = rect;
+        
+        [stampScrollView addSubview:imageView];
+        
+        cx += imageView.frame.size.width+5;
+        tot++;
+    }
+    
+    [stampScrollView setContentSize:CGSizeMake(cx, [stampScrollView bounds].size.height)];
+}
+
 #pragma mark -
 #pragma mark - AFPhotoEditorControllerDelegate
 
@@ -186,7 +305,7 @@ sceneCaptureController, delegate;
     [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
     [image2 drawInRect:CGRectMake(10,10,image2.size.width,image2.size.height)
              blendMode:kCGBlendModeNormal alpha:1.0];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *compositeImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     // Pass new image to shared modal
@@ -218,7 +337,7 @@ sceneCaptureController, delegate;
 {
     [self initWithImage:image];
     // Cache some logos in the stampScrollView
-    
+    [self setupHorizontalScrollView];
 }
 
 - (void)imageCaptureFailed
